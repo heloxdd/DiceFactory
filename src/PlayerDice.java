@@ -69,7 +69,5 @@ public class PlayerDice {
         System.out.println("cmdlist - prints a list of all commands.");
         System.out.println("ready - moves on to the next player's ordering or starts the game.");
     }
-    public void doggify() {
-        playerDice=List.of(7,7,7,7,7,7);
-    }
+
 }

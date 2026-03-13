@@ -32,10 +32,6 @@ public class Factory {
                     case 6:
                         six(p1);
                         break;
-                    case 7:
-                        p1.points+=357913941;
-                        System.out.println("player harnessed the power of Athena and obtained 357913941 points. ");
-                        break;
                 }
                 System.out.println("Player 1's dice: "+diceString(p1.getDice(), p1index));
                 System.out.println("Player 2's dice: "+diceString(p2.getDice(), 7));
@@ -65,10 +61,6 @@ public class Factory {
                         break;
                     case 6:
                         six(p2);
-                        break;
-                    case 7:
-                        p2.points+=357913941;
-                        System.out.println("player harnessed the power of Athena and obtained 357913941 points. ");
                         break;
                 }
                 System.out.println("Player 1's dice: "+diceString(p1.getDice(), 7));

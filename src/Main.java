@@ -11,14 +11,13 @@ class Main {
         PlayerDice fakePlayerOneDice = new PlayerDice();
         fakePlayerOneDice.playerDice=playerOneDice.playerDice;
         
-
         System.out.print("Player 2, look away! Press enter to continue. ");
         scanner.nextLine();
         System.out.println();
         System.out.println("Your dice are: "+playerOneDice.getDice().toString().replaceAll("\\[", "").replaceAll("\\]","")+".");
         System.out.println("Player 2's dice are: "+playerTwoDice.getDice().toString().replaceAll("\\[", "").replaceAll("\\]","")+".");
         System.out.println("Type 'cmdlist' to see a list of commands. ");
-        while (!p1ready) {
+        while (!p1ready) { //does the turn thingy
             String input = scanner.nextLine();
             String firstInputWord = input.split("\\s+")[0];
             System.out.println();
@@ -59,9 +58,6 @@ class Main {
                         break;
                     case "ready":
                         p1ready=true;
-                        break;
-                    case "ATHENABOBINADOG":
-                        playerOneDice.doggify();
                         break;
                     default:
                         System.out.println("You need to type a valid command. Error: Inexistent Command");
@@ -124,9 +120,6 @@ class Main {
                         break;
                     case "ready":
                         p2ready=true;
-                        break;
-                    case "ATHENABOBINADOG":
-                        playerTwoDice.doggify();
                         break;
                     default:
                         System.out.println("You need to type a valid command. Error: Inexistent Command");
