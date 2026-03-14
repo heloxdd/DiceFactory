@@ -1,7 +1,7 @@
 import java.util.*;
 public class PlayerDice {
     List<Integer> playerDice = new ArrayList<>();
-    int points=0;
+    long points=0;
     int mult=1;
     int diceAmount=6;
 
@@ -30,6 +30,9 @@ public class PlayerDice {
     }
     public void randomize() {
         Collections.shuffle(playerDice);
+    }
+    public void sort() {
+        Collections.sort(playerDice);
     }
     public String setOrder(List<Integer> newOrder) {
         List<Integer> sortedPlayerDice = new ArrayList<>(playerDice);
@@ -73,6 +76,7 @@ public class PlayerDice {
         System.out.println("rules - prints a list of all the rules of the game and what each die's ability is.");
         System.out.println("cmdlist - prints a list of all commands.");
         System.out.println("ready - moves on to the next player's ordering or starts the game.");
+        System.out.println("sort - sorts the dice in acending order (e.g. 1, 1, 2, 4, 5, 6).");
     }
 
 }

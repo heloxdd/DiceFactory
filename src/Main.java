@@ -49,6 +49,9 @@ class Main {
                     case "randomize":
                         playerOneDice.randomize();
                         break;
+                    case "sort":
+                        playerOneDice.sort();
+                        break;
                     case "rules":
                         PlayerDice.rules();
                         break;
