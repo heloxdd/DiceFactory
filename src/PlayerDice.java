@@ -3,10 +3,15 @@ public class PlayerDice {
     List<Integer> playerDice = new ArrayList<>();
     int points=0;
     int mult=1;
+    int diceAmount=6;
+
+    public PlayerDice(int DiceAmount) {
+        this.diceAmount=DiceAmount;
+    }
     public void randomizeDice() {
         Random randomNum = new Random();
-        for (int i=0;i<6;i++) {
-            playerDice.add(randomNum.nextInt(6)+1);
+        for (int i=0;i<diceAmount;i++) {
+            playerDice.add(randomNum.nextInt(1, 7));
         }
     }
     public List<Integer> getDice() {

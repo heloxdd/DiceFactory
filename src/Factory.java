@@ -2,15 +2,17 @@ import java.util.*;
 public class Factory {
     PlayerDice p1;
     PlayerDice p2;
+    int diceAmount;
     Random random = new Random();
-    public Factory(PlayerDice p1, PlayerDice p2) {
+    public Factory(PlayerDice p1, PlayerDice p2, int diceAmount) {
         this.p1=p1;
         this.p2=p2;
+        this.diceAmount=diceAmount;
     }
     public void run() {
         int p1index=0;
         int p2index=0;
-        for (int i=0;i<12;i++) {
+        for (int i=0;i<diceAmount*2;i++) {
             if (i%2==0) {
                 System.out.print("On Player 1's turn (turn "+(p1index+1)+"), ");
                 switch (p1.get(p1index)) {
@@ -34,7 +36,7 @@ public class Factory {
                         break;
                 }
                 System.out.println("Player 1's dice: "+diceString(p1.getDice(), p1index));
-                System.out.println("Player 2's dice: "+diceString(p2.getDice(), 7));
+                System.out.println("Player 2's dice: "+diceString(p2.getDice(), diceAmount+1));
                 p1index+=1;
                 System.out.println("P1 points: "+p1.points);
                 System.out.println("P2 points: "+p2.points);
@@ -63,7 +65,7 @@ public class Factory {
                         six(p2);
                         break;
                 }
-                System.out.println("Player 1's dice: "+diceString(p1.getDice(), 7));
+                System.out.println("Player 1's dice: "+diceString(p1.getDice(), diceAmount+1));
                 System.out.println("Player 2's dice: "+diceString(p2.getDice(), p2index));
                 p2index+=1;
                 System.out.println("P2 points: "+p2.points);
@@ -76,13 +78,13 @@ public class Factory {
     }
     public String diceString(List<Integer> dice, int index) {
         String retval = "";
-        for (int i=0;i<6;i++){
+        for (int i=0;i<diceAmount;i++){
             if (i!=index) {
                 retval+=dice.get(i).toString();
             } else {
                 retval+="-> "+dice.get(index).toString();
             }
-            if (i<5) {
+            if (i<diceAmount-1) {
                 retval += ", ";
             }
         }
@@ -94,7 +96,7 @@ public class Factory {
         player.mult=1;
     }
     public void two(PlayerDice player, int index) {
-        if (index<5) {
+        if (index<diceAmount-1) {
             int curvalue = player.get(index+1);
             int newvalue = (curvalue+player.mult)%6;
             if (newvalue == 0) {
@@ -108,7 +110,7 @@ public class Factory {
         }
     }
     public void three(PlayerDice player, PlayerDice enemy, int enemyIndex, int index) {
-        if (player.mult==1 && enemyIndex!=6) {
+        if (player.mult==1 && enemyIndex!=diceAmount) {
             player.setDice(index, enemy.get(enemyIndex));
             enemy.setDice(enemyIndex, random.nextInt(6)+1);
             System.out.println("player swapped dice with other player. Other player re-rolled swapped die. The obtained die will now be used.");

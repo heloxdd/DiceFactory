@@ -2,50 +2,49 @@ import java.util.*;
 class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        PlayerDice playerOneDice = new PlayerDice();
-        PlayerDice playerTwoDice = new PlayerDice();
-        playerOneDice.randomizeDice();
-        playerTwoDice.randomizeDice();
+        int diceAmount = 6;
         boolean p1ready=false;
         boolean p2ready=false;
-        PlayerDice fakePlayerOneDice = new PlayerDice();
-        fakePlayerOneDice.playerDice=playerOneDice.playerDice;
         
+        System.out.print("How many dice per player will there be? ");
+        diceAmount = scanner.nextInt();
+        System.out.println();
+
+        PlayerDice playerOneDice = new PlayerDice(diceAmount);
+        PlayerDice playerTwoDice = new PlayerDice(diceAmount);
+        PlayerDice fakePlayerDice = new PlayerDice(diceAmount);
+        playerOneDice.randomizeDice();
+        playerTwoDice.randomizeDice();
+        fakePlayerDice.playerDice=playerOneDice.playerDice;
+
         System.out.print("Player 2, look away! Press enter to continue. ");
         scanner.nextLine();
         System.out.println();
         System.out.println("Your dice are: "+playerOneDice.getDice().toString().replaceAll("\\[", "").replaceAll("\\]","")+".");
         System.out.println("Player 2's dice are: "+playerTwoDice.getDice().toString().replaceAll("\\[", "").replaceAll("\\]","")+".");
         System.out.println("Type 'cmdlist' to see a list of commands. ");
+        
         while (!p1ready) { //does the turn thingy
+            List<Integer> inputWords = new ArrayList<>();
+            inputWords.removeAll(inputWords);
             String input = scanner.nextLine();
             String firstInputWord = input.split("\\s+")[0];
+            for (int i = 1; i<=diceAmount; i++) {
+                if (i < input.split("\\s+").length && input.split("\\s+")[i] != null) {
+                    inputWords.add(Integer.parseInt(input.split("\\s+")[i]));
+                }
+            }
             System.out.println();
             try {
                 switch (firstInputWord) {
                     case "set":
-                        int secondInputWord = Integer.parseInt(input.split("\\s+")[1]);
-                        int thirdInputWord = Integer.parseInt(input.split("\\s+")[2]);
-                        int fourthInputWord = Integer.parseInt(input.split("\\s+")[3]);
-                        int fifthInputWord = Integer.parseInt(input.split("\\s+")[4]);
-                        int sixthInputWord = Integer.parseInt(input.split("\\s+")[5]);
-                        int seventhInputWord = Integer.parseInt(input.split("\\s+")[6]);
-                        List<Integer> inputWords = new ArrayList<>();
-                        inputWords.add(secondInputWord);
-                        inputWords.add(thirdInputWord);
-                        inputWords.add(fourthInputWord);
-                        inputWords.add(fifthInputWord);
-                        inputWords.add(sixthInputWord);
-                        inputWords.add(seventhInputWord);
                         String correctness = playerOneDice.setOrder(inputWords);
                         if (correctness!="") {
                             System.out.println(correctness);
                         }
                         break;
                     case "swap":
-                        secondInputWord = Integer.parseInt(input.split("\\s+")[1]);
-                        thirdInputWord = Integer.parseInt(input.split("\\s+")[2]);
-                        playerOneDice.swap(secondInputWord, thirdInputWord);
+                        playerOneDice.swap(inputWords.get(0), inputWords.get(1));
                         break;
                     case "randomize":
                         playerOneDice.randomize();
@@ -77,11 +76,19 @@ class Main {
         scanner.nextLine();
         System.out.println();
         System.out.println("Your dice are: "+playerTwoDice.getDice().toString().replaceAll("\\[", "").replaceAll("\\]","")+".");
-        System.out.println("Player 1's dice (in randomized order) are: "+fakePlayerOneDice.getDice().toString().replaceAll("\\[", "").replaceAll("\\]","")+".");
+        System.out.println("Player 1's dice (in randomized order) are: "+fakePlayerDice.getDice().toString().replaceAll("\\[", "").replaceAll("\\]","")+".");
         System.out.println("Type 'cmdlist' to see a list of commands. ");
+        
         while (!p2ready) {
+            List<Integer> inputWords = new ArrayList<>();
+            inputWords.removeAll(inputWords);
             String input = scanner.nextLine();
             String firstInputWord = input.split("\\s+")[0];
+            for (int i = 1; i<=diceAmount; i++) {
+                if (i < input.split("\\s+").length && input.split("\\s+")[i] != null) {
+                    inputWords.add(Integer.parseInt(input.split("\\s+")[i]));
+                }
+            }
             System.out.println();
             try {
                 switch (firstInputWord) {
@@ -91,19 +98,6 @@ class Main {
                         playerTwoDice.swap(secondInputWord, thirdInputWord);
                         break;
                     case "set":
-                        secondInputWord = Integer.parseInt(input.split("\\s+")[1]);
-                        thirdInputWord = Integer.parseInt(input.split("\\s+")[2]);
-                        int fourthInputWord = Integer.parseInt(input.split("\\s+")[3]);
-                        int fifthInputWord = Integer.parseInt(input.split("\\s+")[4]);
-                        int sixthInputWord = Integer.parseInt(input.split("\\s+")[5]);
-                        int seventhInputWord = Integer.parseInt(input.split("\\s+")[6]);
-                        List<Integer> inputWords = new ArrayList<>();
-                        inputWords.add(secondInputWord);
-                        inputWords.add(thirdInputWord);
-                        inputWords.add(fourthInputWord);
-                        inputWords.add(fifthInputWord);
-                        inputWords.add(sixthInputWord);
-                        inputWords.add(seventhInputWord);
                         String correctness = playerTwoDice.setOrder(inputWords);
                         if (correctness!="") {
                             System.out.println(correctness);
@@ -143,7 +137,7 @@ class Main {
         scanner.close();
         System.out.println();
 
-        Factory game = new Factory(playerOneDice, playerTwoDice);
+        Factory game = new Factory(playerOneDice, playerTwoDice, diceAmount);
         game.run();
     }
 }
