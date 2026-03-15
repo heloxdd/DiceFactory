@@ -1,0 +1,39 @@
+Date : 2026-03-14 12:40:53
+Directory : c:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory
+Total : 9 files,  445 codes, 0 comments, 13 blanks, all 458 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| Java               |          3 |        406 |          0 |         11 |        417 |
+| XML                |          3 |         22 |          0 |          0 |         22 |
+| HTML               |          1 |          9 |          0 |          1 |         10 |
+| JSON with Comments |          1 |          8 |          0 |          0 |          8 |
+| JavaScript         |          1 |          0 |          0 |          1 |          1 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                        | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                           |          9 |        445 |          0 |         13 |        458 |
+| .idea                                                                                       |          3 |         22 |          0 |          0 |         22 |
+| src                                                                                         |          6 |        423 |          0 |         13 |        436 |
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                    | language           | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| c:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\.idea\DiceFactory.iml          | XML                |          8 |          0 |          0 |          8 |
+| c:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\.idea\modules.xml              | XML                |          8 |          0 |          0 |          8 |
+| c:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\.idea\vcs.xml                  | XML                |          6 |          0 |          0 |          6 |
+| c:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\DiceFactory.code-workspace | JSON with Comments |          8 |          0 |          0 |          8 |
+| c:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\Factory.java               | Java               |        188 |          0 |          0 |        188 |
+| c:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\Main.java                  | Java               |        138 |          0 |          9 |        147 |
+| c:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\PlayerDice.java            | Java               |         80 |          0 |          2 |         82 |
+| c:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\diceFactory.html           | HTML               |          9 |          0 |          1 |         10 |
+| c:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\frontend.js                | JavaScript         |          0 |          0 |          1 |          1 |
+| Total                                                                                       |                    |        445 |          0 |         13 |        458 |
++---------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

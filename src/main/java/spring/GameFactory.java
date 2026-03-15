@@ -1,20 +1,24 @@
+package spring;
+
 import java.util.*;
-public class Factory {
+public class GameFactory {
     PlayerDice p1;
     PlayerDice p2;
     int diceAmount;
     Random random = new Random();
-    public Factory(PlayerDice p1, PlayerDice p2, int diceAmount) {
+    List<String> results = new ArrayList<>();
+    
+    public GameFactory(PlayerDice p1, PlayerDice p2, int diceAmount) {
         this.p1=p1;
         this.p2=p2;
         this.diceAmount=diceAmount;
     }
-    public void run() {
+    public List<String> run() {
         int p1index=0;
         int p2index=0;
         for (int i=0;i<diceAmount*2;i++) {
             if (i%2==0) {
-                System.out.print("On Player 1's turn (turn "+(p1index+1)+"), ");
+                results.add("On Player 1's turn (turn "+(p1index+1)+"), ");
                 switch (p1.get(p1index)) {
                     case 1:
                         one(p1);
@@ -35,16 +39,15 @@ public class Factory {
                         six(p1);
                         break;
                 }
-                System.out.println("Player 1's dice: "+diceString(p1.getDice(), p1index));
-                System.out.println("Player 2's dice: "+diceString(p2.getDice(), diceAmount+1));
+                results.add("Player 1's dice: "+diceString(p1.getDice(), p1index));
+                results.add("Player 2's dice: "+diceString(p2.getDice(), diceAmount+1));
                 p1index+=1;
-                System.out.println("P1 points: "+p1.points);
-                System.out.println("P2 points: "+p2.points);
-                System.out.println("P1 mult: "+p1.mult);
-                System.out.println("P2 mult: "+p2.mult);
-                System.out.println();
+                results.add("P1 points: "+p1.points);
+                results.add("P2 points: "+p2.points);
+                results.add("P1 mult: "+p1.mult);
+                results.add("P2 mult: "+p2.mult);
             } else {
-                System.out.print("On Player 2's turn (turn "+(p2index+1)+"), ");
+                results.add("On Player 2's turn (turn "+(p2index+1)+"), ");
                 switch (p2.get(p2index)) {
                     case 1:
                         one(p2);
@@ -65,16 +68,17 @@ public class Factory {
                         six(p2);
                         break;
                 }
-                System.out.println("Player 1's dice: "+diceString(p1.getDice(), diceAmount+1));
-                System.out.println("Player 2's dice: "+diceString(p2.getDice(), p2index));
+                results.add("Player 1's dice: "+diceString(p1.getDice(), diceAmount+1));
+                results.add("Player 2's dice: "+diceString(p2.getDice(), p2index));
                 p2index+=1;
-                System.out.println("P2 points: "+p2.points);
-                System.out.println("P1 points: "+p1.points);
-                System.out.println("P2 mult: "+p2.mult);
-                System.out.println("P1 mult: "+p1.mult);
-                System.out.println();
+                results.add("P2 points: "+p2.points);
+                results.add("P1 points: "+p1.points);
+                results.add("P2 mult: "+p2.mult);
+                results.add("P1 mult: "+p1.mult);
+                
             }
         }
+        return results;
     }
     public String diceString(List<Integer> dice, int index) {
         String retval = "";
@@ -92,7 +96,7 @@ public class Factory {
     }
     public void one(PlayerDice player) {
         player.points+=3*player.mult;
-        System.out.println("player got 3 * "+player.mult+" points. ");
+        results.add("player got 3 * "+player.mult+" points. ");
         player.mult=1;
     }
     public void two(PlayerDice player, int index) {
@@ -103,17 +107,17 @@ public class Factory {
                 newvalue=6;
             }
             player.setDice(index+1, newvalue);
-            System.out.println("player's next die got +"+1*player.mult+" value. ");
+            results.add("player's next die got +"+1*player.mult+" value. ");
             player.mult=1;
         } else {
-            System.out.println("nothing happened, two was the last die.");
+            results.add("nothing happened, two was the last die.");
         }
     }
     public void three(PlayerDice player, PlayerDice enemy, int enemyIndex, int index) {
         if (player.mult==1 && enemyIndex!=diceAmount) {
             player.setDice(index, enemy.get(enemyIndex));
             enemy.setDice(enemyIndex, random.nextInt(6)+1);
-            System.out.println("player swapped dice with other player. Other player re-rolled swapped die. The obtained die will now be used.");
+            results.add("player swapped dice with other player. Other player re-rolled swapped die. The obtained die will now be used.");
             switch (player.get(index)) {
                 case 1:
                     one(player);
@@ -135,10 +139,10 @@ public class Factory {
                     break;
             }
         } else if (player.mult!=1) {
-            System.out.println("nothing happened because three was multed. ");
+            results.add("nothing happened because three was multed. ");
             player.mult=1;
         } else {
-            System.out.println("nothing happened because this three was the last die.");
+            results.add("nothing happened because this three was the last die.");
         }
     }
     public void four(PlayerDice player, PlayerDice enemy, int index, int enemyIndex) {
@@ -164,9 +168,9 @@ public class Factory {
                     break;
             }
             player.setDice(index, player.get(index-1));
-            System.out.println("previous die was copied. ");
+            results.add("previous die was copied. ");
         } else {
-            System.out.println("nothing happened, this 4 was the first die. ");
+            results.add("nothing happened, this 4 was the first die. ");
         }
     }
     public void five(PlayerDice player, PlayerDice enemy) {
@@ -178,11 +182,11 @@ public class Factory {
             player.points+=1;
         }
         enemy.points+=3*player.mult;
-        System.out.println("player got +"+50*player.mult+"% more points. Enemy got +"+3*player.mult+" points. ");
+        results.add("player got +"+50*player.mult+"% more points. Enemy got +"+3*player.mult+" points. ");
         player.mult=1;
     }
     public void six(PlayerDice player)  {
         player.mult*=2;
-        System.out.println("mult was doubled.");
+        results.add("mult was doubled.");
     } 
 }

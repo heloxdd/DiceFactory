@@ -1,12 +1,18 @@
+package spring;
+
 import java.util.*;
 public class PlayerDice {
+
     List<Integer> playerDice = new ArrayList<>();
-    long points=0;
-    int mult=1;
-    int diceAmount=6;
+    long points = 0;
+    int mult = 1;
+    public int diceAmount = 6;
 
     public PlayerDice(int DiceAmount) {
         this.diceAmount=DiceAmount;
+    }
+    public PlayerDice(List<Integer> player) {
+        this.playerDice = player;
     }
     public void randomizeDice() {
         Random randomNum = new Random();
@@ -20,8 +26,8 @@ public class PlayerDice {
     public int get(int index) {
         return playerDice.get(index);
     }
-    public void setDice(int index, int newnum) {
-        playerDice.set(index,newnum);
+    public void setDice(int index, int newNum) {
+        playerDice.set(index,newNum);
     }
     public void swap(int i, int j) {
         int placeholder = playerDice.get(i-1);
@@ -76,7 +82,7 @@ public class PlayerDice {
         System.out.println("rules - prints a list of all the rules of the game and what each die's ability is.");
         System.out.println("cmdlist - prints a list of all commands.");
         System.out.println("ready - moves on to the next player's ordering or starts the game.");
-        System.out.println("sort - sorts the dice in acending order (e.g. 1, 1, 2, 4, 5, 6).");
+        System.out.println("sort - sorts the dice in ascending order (e.g. 1, 1, 2, 4, 5, 6).");
     }
 
 }
