@@ -2,11 +2,13 @@ const p1Container = document.getElementById("p1DiceContainer");
 const p2Container = document.getElementById("p2DiceContainer");
 let p1screen = document.getElementById("p1Screen");
 let p2screen = document.getElementById("p2Screen");
-let resultText = document.getElementById("resultText");
 let resultScreen = document.getElementById("resultScreen");
+let resultText = document.getElementById("resultText");
 let p2DicePreview = document.getElementById("p2DicePreview");
 let p1DicePreview = document.getElementById("p1DicePreview");
+let nextFrameButton = document.getElementById("nextFrameButton");
 let startDrag = null;
+let currentResult=0;
 let p1Dice = [];
 let p2Dice = [];
 let results;
@@ -34,25 +36,23 @@ for (let i = 1; i <= 12; i++) {
     } else {
         p2Container.appendChild(die);
     }
-}
-
+} //create dice
 
 for (let i = 0; i < 6; i++) {
     p1Dice.push(parseInt(p1Container.children[i].textContent));
     p2Dice.push(parseInt(p2Container.children[i].textContent));
 }
 p2DicePreview.textContent = ("Enemy's dice are: "+p2Dice.join(", ").toString());
-p1DicePreview.textContent = ("Enemy's dice are: "+p1Dice.join(", ").toString());
-
+p1DicePreview.textContent = ("Enemy's dice are: "+p1Dice.join(", ").toString()); //create opposing player dice views
 
 function ready() {
     p1screen.style.display = "none";
     p2screen.style.display = "flex";
-}
+} //p1 ready
 
 function run() {
     p2screen.style.display = "none";
-    resultScreen.style.display = "block";
+    resultScreen.style.display = "flex";
     p1Dice = [];
     p2Dice = [];
 
@@ -72,10 +72,25 @@ function run() {
     .then(response => response.json())
     .then(data => {
         results = data;
-        showResults();
+        nextResult();
     })
-}
+} //runs the game and runs showResults with the given data
 
-function showResults() {
-    resultText.textContent = results;
+function nextResult() { //processes a single result into graphics to visualize it
+    if (currentResult < results.length) {
+        resultText.innerHTML = results[currentResult]+"<br>";
+        resultText.innerHTML += results[currentResult+1]+"<br>";
+        resultText.innerHTML += results[currentResult+2]+"<br>";
+        resultText.innerHTML += results[currentResult+3]+"<br>";
+        resultText.innerHTML += results[currentResult+4]+"<br>";
+        resultText.innerHTML += results[currentResult+5]+"<br>";
+        resultText.innerHTML += results[currentResult+6]+"<br>";
+        resultText.innerHTML += results[currentResult+7]+"<br>";
+        currentResult+=8;
+        console.log(results[currentResult]);
+    } else {
+        resultText.style.display = "none";
+        nextFrameButton.style.display = "none";
+        console.log("results failed: none left");
+    }
 }
