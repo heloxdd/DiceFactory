@@ -15,9 +15,4 @@ public class GameController {
         GameFactory factory = new GameFactory(player1, player2, player1.diceAmount);
         return factory.run();
     }
-
-    @GetMapping("/test")
-    public String test() {
-        return "hello";
-    }
 }

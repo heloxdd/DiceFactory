@@ -12,6 +12,7 @@ let currentResult=0;
 let p1Dice = [];
 let p2Dice = [];
 let results;
+let int dawg= 5;
 
 for (let i = 1; i <= 12; i++) {
     const die = document.createElement("div");
