@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DiceFactory</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+
+    <div id="p1Screen" class="screen" style="display: flex;">
+
+        <h2 style="height: 0;">Player 1 - Arrange your dice</h2>
+        <h2 style="height: 0;" id="p2DicePreview"></h2>
+        <h2>Your dice are: </h2>
+        <div id="p1DiceContainer">
+        </div>
+        <button onclick="ready()" style="height: 100px; width: 200px; font-size:50px;
+        font-family: 'Times New Roman',serif; border-radius: 15px; background-color: lightskyblue;"> ready </button>
+
+    </div>
+
+    <div id="p2Screen" class="screen" style="display: none;">
+
+        <h2 style="height: 0;">Player 2 - Arrange your dice</h2>
+        <h2 style="height: 0;" id="p1DicePreview"></h2>
+        <h2>Your dice are: </h2>
+        <div id="p2DiceContainer">
+        </div>
+        <button onclick="run()" style="height: 100px; width: 200px; font-size:50px;
+        font-family: 'Times New Roman',serif; border-radius: 15px; background-color: lightskyblue;"> ready </button>
+
+    </div>
+
+    <div id="resultScreen" class="screen" style="display: none;">
+
+        <h2 id="resultText" style="font-size: 24px; text-align: center; line-height: 2; display: flex;"> loading... </h2>
+
+        <button id="nextFrameButton" onclick="nextResult()" style="height: 128px; width: 256px; font-size:64px;
+        font-family: 'Times New Roman',serif; border-radius: 15px; background-color: lightskyblue;"> next </button>
+
+    </div>
+
+    <script src="main.js"> </script>
+
+</body>
+
+</html>
