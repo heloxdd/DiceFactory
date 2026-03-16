@@ -110,14 +110,14 @@ public class GameFactory {
             results.add("player's next die got +"+1*player.mult+" value. ");
             player.mult=1;
         } else {
-            results.add("nothing happened, two was the last die.");
+            results.add("nothing happened, two was the last die. ");
         }
     }
     public void three(PlayerDice player, PlayerDice enemy, int enemyIndex, int index) {
         if (player.mult==1 && enemyIndex!=diceAmount) {
             player.setDice(index, enemy.get(enemyIndex));
             enemy.setDice(enemyIndex, random.nextInt(6)+1);
-            results.add("player swapped dice with other player. Other player re-rolled swapped die. The obtained die will now be used.");
+            results.add("player swapped dice with other player. Other player re-rolled swapped die. The obtained die will now be used. ");
             switch (player.get(index)) {
                 case 1:
                     one(player);
@@ -142,7 +142,7 @@ public class GameFactory {
             results.add("nothing happened because three was multed. ");
             player.mult=1;
         } else {
-            results.add("nothing happened because this three was the last die.");
+            results.add("nothing happened because this three was the last die. ");
         }
     }
     public void four(PlayerDice player, PlayerDice enemy, int index, int enemyIndex) {
@@ -187,6 +187,6 @@ public class GameFactory {
     }
     public void six(PlayerDice player)  {
         player.mult*=2;
-        results.add("mult was doubled.");
+        results.add("mult was doubled. ");
     } 
 }

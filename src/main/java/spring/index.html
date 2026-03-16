@@ -7,19 +7,36 @@
 </head>
 
 <body>
-    <div id="p1Screen" class="screen">
-        <h2>Player 1 - Arrange your dice</h2>
-        <div id="diceContainer">
-        </div>
-        <!-- p1 selection -->
-        <!--<div style="position: absolute; width: 100px;
-        height: 100px; background-color: lightblue; outline: black solid;
-        top: 50%; left: 50%; transform: translate(-425px, -50px);">1 </div>-->
 
+    <div id="p1Screen" class="screen" style="display: flex;">
+
+        <h2 style="height: 0;">Player 1 - Arrange your dice</h2>
+        <h2 style="height: 0;" id="p2DicePreview"></h2>
+        <h2>Your dice are: </h2>
+        <div id="p1DiceContainer">
+        </div>
+        <button onclick="ready()" style="height: 100px; width: 200px; font-size:50px;
+        font-family: 'Times New Roman',serif; border-radius: 15px; background-color: lightskyblue;"> ready </button>
 
     </div>
 
-    <script src="main.js"></script>
+    <div id="p2Screen" class="screen" style="display: none;">
+
+        <h2 style="height: 0;">Player 2 - Arrange your dice</h2>
+        <h2 style="height: 0;" id="p1DicePreview"></h2>
+        <h2>Your dice are: </h2>
+        <div id="p2DiceContainer">
+        </div>
+        <button onclick="run()" style="height: 100px; width: 200px; font-size:50px;
+        font-family: 'Times New Roman',serif; border-radius: 15px; background-color: lightskyblue;"> ready </button>
+
+    </div>
+
+    <div id="resultScreen" class="screen" style="display: none;">
+        <h2 id="resultText">gee willikers it didnt FUCKING work</h2>
+    </div>
+
+    <script src="main.js"> </script>
 </body>
 
 </html>
