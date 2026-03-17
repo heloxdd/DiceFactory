@@ -7,8 +7,10 @@ let resultText = document.getElementById("resultText");
 let p2DicePreview = document.getElementById("p2DicePreview");
 let p1DicePreview = document.getElementById("p1DicePreview");
 let nextFrameButton = document.getElementById("nextFrameButton");
+let prevFrameButton = document.getElementById("prevFrameButton");
+let winText = document.getElementById("winText");
 let startDrag = null;
-let currentResult=0;
+let currentResult=-8;
 let p1Dice = [];
 let p2Dice = [];
 let results;
@@ -77,20 +79,48 @@ function run() {
 } //runs the game and runs showResults with the given data
 
 function nextResult() { //processes a single result into graphics to visualize it
-    if (currentResult < results.length) {
-        resultText.innerHTML = results[currentResult]+"<br>";
-        resultText.innerHTML += results[currentResult+1]+"<br>";
-        resultText.innerHTML += results[currentResult+2]+"<br>";
-        resultText.innerHTML += results[currentResult+3]+"<br>";
-        resultText.innerHTML += results[currentResult+4]+"<br>";
-        resultText.innerHTML += results[currentResult+5]+"<br>";
-        resultText.innerHTML += results[currentResult+6]+"<br>";
-        resultText.innerHTML += results[currentResult+7]+"<br>";
+    if (currentResult<8) {
+        prevFrameButton.style.display = "none";
+    }
+
+    if (currentResult < results.length-17) {
+        resultText.innerHTML = "";
         currentResult+=8;
-        console.log(results[currentResult]);
+        for (let i = 0; i < 8; i++) {
+            resultText.innerHTML += results[currentResult+i] + "<br>";
+        }
+        console.log(currentResult);
+        console.log(results.length);
     } else {
         resultText.style.display = "none";
+        winText.innerHTML = results[results.length - 3]+"<br>";
+        winText.innerHTML += results[results.length - 2]+"<br>";
+        winText.innerHTML += results[results.length - 1];
+        winText.style.display = "flex";
         nextFrameButton.style.display = "none";
-        console.log("results failed: none left");
+        currentResult+=8;
+    }
+
+    if (currentResult>=8) {
+        prevFrameButton.style.display = "inline";
+    }
+}
+
+function prevResult() { //processes a single result into graphics to visualize it
+    if (currentResult>0) {
+        resultText.innerHTML = "";
+        resultText.style.display = "flex";
+        currentResult-=8;
+        nextFrameButton.style.display = "inline";
+        winText.style.display = "none";
+        for (let i = 0; i < 8; i++) {
+            resultText.innerHTML += results[currentResult+i] + "<br>";
+        }
+        console.log(currentResult);
+    }
+    if (currentResult>=8) {
+        prevFrameButton.style.display = "inline";
+    } if (currentResult<8) {
+        prevFrameButton.style.display = "none";
     }
 }

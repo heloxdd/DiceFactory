@@ -44,10 +44,10 @@ public class GameFactory {
                 results.add("Player 1's dice: "+diceString(p1.getDice()));
                 results.add("Player 2's dice: "+diceString(p2.getDice()));
                 p1index+=1;
-                results.add("P1 points: "+p1.points);
-                results.add("P2 points: "+p2.points);
-                results.add("P1 mult: "+p1.mult);
-                results.add("P2 mult: "+p2.mult);
+                results.add("Player 1's points: "+p1.points);
+                results.add("Player 2's points: "+p2.points);
+                results.add("Player 1's mult: "+p1.mult);
+                results.add("Player 2's mult: "+p2.mult);
                 resultPile.clear();
             } else {
                 results.add("On Player 2's turn (turn "+(p2index+1)+"), ");
@@ -75,13 +75,22 @@ public class GameFactory {
                 results.add("Player 1's dice: "+diceString(p1.getDice()));
                 results.add("Player 2's dice: "+diceString(p2.getDice()));
                 p2index+=1;
-                results.add("P2 points: "+p2.points);
-                results.add("P1 points: "+p1.points);
-                results.add("P2 mult: "+p2.mult);
-                results.add("P1 mult: "+p1.mult);
+                results.add("Player 2's points: "+p2.points);
+                results.add("Player 1's points: "+p1.points);
+                results.add("Player 2's mult: "+p2.mult);
+                results.add("Player 1's mult: "+p1.mult);
                 resultPile.clear();
             }
         }
+        if (p1.points>p2.points) {
+            results.add("Player 1 won!");
+        } else if (p1.points==p2.points) {
+            results.add("The game was a tie!");
+        } else {
+            results.add("Player 2 won!");
+        }
+        results.add("Player 1's points: "+p1.points);
+        results.add("Player 2's points: "+p2.points);
         return results;
     }
     public String diceString(List<Integer> dice) {
