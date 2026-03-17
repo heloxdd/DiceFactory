@@ -63,7 +63,7 @@ function run() {
         p2Dice.push(parseInt(p2Container.children[i].textContent));
     }
 
-    fetch("https://heloxdd.github.io/DiceFactory/api/play", {
+    fetch("https://dicefactory-production.up.railway.app/api/play", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
