@@ -9,6 +9,8 @@ let p1DicePreview = document.getElementById("p1DicePreview");
 let nextFrameButton = document.getElementById("nextFrameButton");
 let prevFrameButton = document.getElementById("prevFrameButton");
 let winText = document.getElementById("winText");
+let rulesBox = document.getElementById("rulesBox");
+let rulesButton = document.getElementById("rulesButton");
 let startDrag = null;
 let currentResult=-8;
 let p1Dice = [];
@@ -57,6 +59,8 @@ function run() {
     resultScreen.style.display = "flex";
     p1Dice = [];
     p2Dice = [];
+    rulesButton.style.display = "none";
+    rulesBox.style.display = "none";
 
     for (let i = 0; i < 6; i++) {
         p1Dice.push(parseInt(p1Container.children[i].textContent));
@@ -77,6 +81,25 @@ function run() {
         nextResult();
     })
 } //runs the game and runs showResults with the given data
+
+function prevResult() { //processes a single result into graphics to visualize it
+    if (currentResult>0) {
+        resultText.innerHTML = "";
+        resultText.style.display = "flex";
+        currentResult-=8;
+        nextFrameButton.style.display = "inline";
+        winText.style.display = "none";
+        for (let i = 0; i < 8; i++) {
+            resultText.innerHTML += results[currentResult+i] + "<br>";
+        }
+        console.log(currentResult);
+    }
+    if (currentResult>=8) {
+        prevFrameButton.style.display = "inline";
+    } if (currentResult<8) {
+        prevFrameButton.style.display = "none";
+    }
+}
 
 function nextResult() { //processes a single result into graphics to visualize it
     if (currentResult<8) {
@@ -106,21 +129,13 @@ function nextResult() { //processes a single result into graphics to visualize i
     }
 }
 
-function prevResult() { //processes a single result into graphics to visualize it
-    if (currentResult>0) {
-        resultText.innerHTML = "";
-        resultText.style.display = "flex";
-        currentResult-=8;
-        nextFrameButton.style.display = "inline";
-        winText.style.display = "none";
-        for (let i = 0; i < 8; i++) {
-            resultText.innerHTML += results[currentResult+i] + "<br>";
-        }
-        console.log(currentResult);
+function toggleRules() {
+    if (rulesBox.style.display === "none") {
+        rulesBox.style.display = "flex";
+        console.log("worked");
+    } else {
+        rulesBox.style.display = "none";
+        console.log("not worked");
     }
-    if (currentResult>=8) {
-        prevFrameButton.style.display = "inline";
-    } if (currentResult<8) {
-        prevFrameButton.style.display = "none";
-    }
+    console.log("toggled")
 }
