@@ -17,6 +17,7 @@ let p1Dice = [];
 let p2Dice = [];
 let results;
 
+
 for (let i = 1; i <= 12; i++) {
     const die = document.createElement("div");
     die.textContent = String(Math.ceil(Math.random() * 6));
@@ -35,12 +36,27 @@ for (let i = 1; i <= 12; i++) {
         die.textContent = temp;
     }
 
+    die.addEventListener("touchstart", function(_event) {
+        startDrag = die;
+    })
+    die.addEventListener("touchmove", function(event) {
+        event.preventDefault();
+    })
+    die.addEventListener("touchend", function(event) {
+        let target = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+
+        let temp = startDrag.textContent;
+        startDrag.textContent = target.textContent;
+        target.textContent = temp;
+    })
+
     if (i%2===0) {
         p1Container.appendChild(die);
     } else {
         p2Container.appendChild(die);
     }
 } //create dice
+
 
 for (let i = 0; i < 6; i++) {
     p1Dice.push(parseInt(p1Container.children[i].textContent));
@@ -92,7 +108,6 @@ function prevResult() { //processes a single result into graphics to visualize i
         for (let i = 0; i < 8; i++) {
             resultText.innerHTML += results[currentResult+i] + "<br>";
         }
-        console.log(currentResult);
     }
     if (currentResult>=8) {
         prevFrameButton.style.display = "inline";
@@ -112,8 +127,6 @@ function nextResult() { //processes a single result into graphics to visualize i
         for (let i = 0; i < 8; i++) {
             resultText.innerHTML += results[currentResult+i] + "<br>";
         }
-        console.log(currentResult);
-        console.log(results.length);
     } else {
         resultText.style.display = "none";
         winText.innerHTML = results[results.length - 3]+"<br>";
@@ -132,10 +145,7 @@ function nextResult() { //processes a single result into graphics to visualize i
 function toggleRules() {
     if (rulesBox.style.display === "none") {
         rulesBox.style.display = "flex";
-        console.log("worked");
     } else {
         rulesBox.style.display = "none";
-        console.log("not worked");
     }
-    console.log("toggled")
 }
