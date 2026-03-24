@@ -10,16 +10,9 @@
 
     <button id="rulesButton" onclick="toggleRules()"> rules </button>
 
-    <div id="rulesDisplay" style="display: flex; position:absolute; align-items: center; justify-content: center;">
+    <div id="rulesDisplay">
 
-        <div id="rulesBox" style="height:750px; width:450px; position: absolute; background-color: #1B1B1B;
-        border-radius: 20px; display:none; align-items: flex-start;
-        justify-content: center; border: 4px solid white; text-align: center;">
-
-            <h2 style="font-family: 'Tahoma',serif; font-size: 75px; transform: translate(0, -25px);"> RULES </h2>
-
-            <h2 style="position: absolute; font-family: 'Tahoma','serif';
-             font-size: 25px; transform: translate(0, 125px); width: 600px;"> DICE ABILITIES<br><br>
+        <h2> DICE ABILITIES<br><br>
                 1: Gives you three points.            <br><br>
                 2: Adds one to the value of the       <br>
                    next die (ex. a 3 becomes a 4).    <br><br>
@@ -30,9 +23,8 @@
                    and uses itself.                   <br><br>
                 5: Gives you +50% points but          <br>
                    gives enemy 3 points.              <br><br>
-                6: Next die has 2X effects.           </h2>
-
-        </div>
+                6: Next die has 2X effects.
+        </h2>
 
     </div>
 
@@ -40,10 +32,9 @@
 
         <h2 style="height: 0;">Player 1 - Arrange your dice</h2>
         <h2 style="height: 0;" id="p2DicePreview"></h2>
-        <h2>Your dice are: </h2>
+        <h2 style="height: 0;">Your dice are: </h2>
         <div id="p1DiceContainer" class="diceContainer">
         </div>
-
         <button onclick="ready()"> ready </button>
 
     </div >
@@ -60,7 +51,7 @@
 
     </div >
 
-    <div id="resultScreen" class="screen" style="display: none;" >
+    <div id="resultScreen" class="screen">
 
         <h2 id="resultText" style="font-size: 24px; text-align: center; line-height: 2; display: flex;"> loading... </h2>
 
@@ -68,11 +59,9 @@
 
         <div id="resultNavigationButtons">
 
-            <button id="prevFrameButton" onclick="prevResult()" style="height: 128px; width: 256px; font-size:64px;
-        font-family: 'Tahoma',serif; border-radius: 15px; background-color: mediumseagreen;"> prev </button>
+            <button id="prevFrameButton" onclick="prevResult()"> prev </button>
 
-            <button id="nextFrameButton" onclick="nextResult()" style="height: 128px; width: 256px; font-size:64px;
-        font-family: 'Tahoma',serif; border-radius: 15px; background-color: mediumseagreen;"> next </button>
+            <button id="nextFrameButton" onclick="nextResult()"> next </button>
 
         </div>
 

@@ -9,7 +9,7 @@ let p1DicePreview = document.getElementById("p1DicePreview");
 let nextFrameButton = document.getElementById("nextFrameButton");
 let prevFrameButton = document.getElementById("prevFrameButton");
 let winText = document.getElementById("winText");
-let rulesBox = document.getElementById("rulesBox");
+let rulesDisplay = document.getElementById("rulesDisplay");
 let rulesButton = document.getElementById("rulesButton");
 let startDrag = null;
 let currentResult=-8;
@@ -34,6 +34,9 @@ for (let i = 1; i <= 12; i++) {
         let temp = startDrag.textContent;
         startDrag.textContent = die.textContent;
         die.textContent = temp;
+
+        renderDie(die);
+        renderDie(startDrag);
     }
 
     die.addEventListener("touchstart", function(_event) {
@@ -48,7 +51,12 @@ for (let i = 1; i <= 12; i++) {
         let temp = startDrag.textContent;
         startDrag.textContent = target.textContent;
         target.textContent = temp;
+
+        renderDie(target);
+        renderDie(startDrag);
     })
+
+    renderDie(die);
 
     if (i%2===0) {
         p1Container.appendChild(die);
@@ -76,7 +84,7 @@ function run() {
     p1Dice = [];
     p2Dice = [];
     rulesButton.style.display = "none";
-    rulesBox.style.display = "none";
+    rulesDisplay.style.display = "none";
 
     for (let i = 0; i < 6; i++) {
         p1Dice.push(parseInt(p1Container.children[i].textContent));
@@ -143,9 +151,15 @@ function nextResult() { //processes a single result into graphics to visualize i
 }
 
 function toggleRules() {
-    if (rulesBox.style.display === "none") {
-        rulesBox.style.display = "flex";
+    if (rulesDisplay.style.display === "flex") {
+        rulesDisplay.style.display = "none";
     } else {
-        rulesBox.style.display = "none";
+        rulesDisplay.style.display = "flex";
     }
+}
+
+function renderDie(die) {
+    let dieImage=document.createElement("img");
+    dieImage.setAttribute("src", "images/"+die.textContent+".png");
+    die.appendChild(dieImage);
 }
