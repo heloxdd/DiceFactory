@@ -8,21 +8,17 @@
 
 <body>
 
-    <button id="rulesButton" onclick="toggleRules()" style="height: 100px; width: 200px;
-        border-radius: 15px; transform: translate(350px, -200px);
-        background-color: lightskyblue; font-family: 'Times New Roman',serif;
-        font-size: 50px; z-index: 1; display: flex; position:absolute;
-        align-items: center; justify-content: center;"> rules </button>
+    <button id="rulesButton" onclick="toggleRules()"> rules </button>
 
     <div id="rulesDisplay" style="display: flex; position:absolute; align-items: center; justify-content: center;">
 
-        <div id="rulesBox" style="height:700px; width:450px; position: absolute; background-color: lightgrey;
+        <div id="rulesBox" style="height:750px; width:450px; position: absolute; background-color: #1B1B1B;
         border-radius: 20px; display:none; align-items: flex-start;
-        justify-content: center; border: 4px solid black; text-align: center;">
+        justify-content: center; border: 4px solid white; text-align: center;">
 
-            <h2 style="font-family: 'Times New Roman',serif; font-size: 75px; transform: translate(0, -25px);"> RULES </h2>
+            <h2 style="font-family: 'Tahoma',serif; font-size: 75px; transform: translate(0, -25px);"> RULES </h2>
 
-            <h2 style="position: absolute; font-family: 'Times New Roman','serif';
+            <h2 style="position: absolute; font-family: 'Tahoma','serif';
              font-size: 25px; transform: translate(0, 125px); width: 600px;"> DICE ABILITIES<br><br>
                 1: Gives you three points.            <br><br>
                 2: Adds one to the value of the       <br>
@@ -45,26 +41,26 @@
         <h2 style="height: 0;">Player 1 - Arrange your dice</h2>
         <h2 style="height: 0;" id="p2DicePreview"></h2>
         <h2>Your dice are: </h2>
-        <div id="p1DiceContainer">
+        <div id="p1DiceContainer" class="diceContainer">
         </div>
-        <button onclick="ready()" style="height: 100px; width: 200px; font-size:50px;
-        font-family: 'Times New Roman',serif; border-radius: 15px; background-color: lightskyblue;"> ready </button>
 
-    </div>
+        <button onclick="ready()"> ready </button>
+
+    </div >
 
     <div id="p2Screen" class="screen" style="display: none;">
 
         <h2 style="height: 0;">Player 2 - Arrange your dice</h2>
         <h2 style="height: 0;" id="p1DicePreview"></h2>
         <h2>Your dice are: </h2>
-        <div id="p2DiceContainer">
+        <div id="p2DiceContainer" class="diceContainer">
         </div>
-        <button onclick="run()" style="height: 100px; width: 200px; font-size:50px;
-        font-family: 'Times New Roman',serif; border-radius: 15px; background-color: lightskyblue;"> ready </button>
 
-    </div>
+        <button onclick="run()"> ready </button>
 
-    <div id="resultScreen" class="screen" style="display: none;">
+    </div >
+
+    <div id="resultScreen" class="screen" style="display: none;" >
 
         <h2 id="resultText" style="font-size: 24px; text-align: center; line-height: 2; display: flex;"> loading... </h2>
 
@@ -73,10 +69,10 @@
         <div id="resultNavigationButtons">
 
             <button id="prevFrameButton" onclick="prevResult()" style="height: 128px; width: 256px; font-size:64px;
-        font-family: 'Times New Roman',serif; border-radius: 15px; background-color: lightskyblue;"> prev </button>
+        font-family: 'Tahoma',serif; border-radius: 15px; background-color: mediumseagreen;"> prev </button>
 
             <button id="nextFrameButton" onclick="nextResult()" style="height: 128px; width: 256px; font-size:64px;
-        font-family: 'Times New Roman',serif; border-radius: 15px; background-color: lightskyblue;"> next </button>
+        font-family: 'Tahoma',serif; border-radius: 15px; background-color: mediumseagreen;"> next </button>
 
         </div>
 

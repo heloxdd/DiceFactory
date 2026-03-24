@@ -6,14 +6,16 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: lightcyan;
+    background-color: #1B1B1B;
+    font-family: Tahoma, Verdana, Arial, serif;
+    color: white;
 }
 
 .die {
     width: 100px;
     height: 100px;
-    background-color: lightcoral;
-    border: 3px black solid;
+    background-color: mediumseagreen;
+    border: 3px white solid;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,19 +24,7 @@ body {
     border-radius: 12px;
 }
 
-#p1DiceContainer {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-}
-
-#p2DiceContainer {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-}
-
-#p1Screen {
+.screen {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,12 +32,40 @@ body {
     margin-top: -25px;
 }
 
-#p2Screen {
+.diceContainer {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+button {
+    height: 100px;
+    width: 200px;
+    font-size:50px;
+    font-weight: normal;
+    border-radius: 15px;
+    border-color: white;
+    background-color: mediumseagreen;
+    color: white;
+}
+
+h2 {
+    font-weight: normal;
+    color: white;
+}
+
+#rulesButton {
+    height: 100px; width: 200px;
+    border-radius: 15px;
+    transform: translate(350px, -200px);
+    background-color: mediumseagreen;
+    font-family: 'Tahoma',serif;
+    font-size: 50px; z-index: 1;
+    font-weight: 100;
+    display: flex;
+    position:absolute;
     align-items: center;
-    gap: 20px;
-    margin-top: -25px;
+    justify-content: center;
 }
 
 #resultScreen {
@@ -65,3 +83,4 @@ body {
     gap: 20px;
     margin-top: -25px;
 }
+
