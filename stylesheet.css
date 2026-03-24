@@ -12,16 +12,13 @@ body {
 }
 
 .die {
-    width: 100px;
-    height: 100px;
-    background-color: mediumseagreen;
-    border: 3px white solid;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 48px;
     cursor: grab;
-    border-radius: 12px;
+    font-size: 0;
+    width: 100px;
+    height: 150px;
 }
 
 .screen {
@@ -42,8 +39,7 @@ button {
     height: 100px;
     width: 200px;
     font-size:50px;
-    font-weight: normal;
-    border-radius: 15px;
+    border-radius: 32px;
     border-color: white;
     background-color: mediumseagreen;
     color: white;
@@ -54,22 +50,35 @@ h2 {
     color: white;
 }
 
+img {
+    width:90%;
+    height:auto;
+}
+
 #rulesButton {
-    height: 100px; width: 200px;
-    border-radius: 15px;
-    transform: translate(350px, -200px);
-    background-color: mediumseagreen;
-    font-family: 'Tahoma',serif;
-    font-size: 50px; z-index: 1;
-    font-weight: 100;
+    transform: translate(350px, -150px);
     display: flex;
     position:absolute;
     align-items: center;
     justify-content: center;
 }
 
+#rulesDisplay {
+    display: none;
+    position:absolute;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height:650px;
+    width:450px;
+    background-color: #1B1B1B;
+    border-radius: 20px;
+    border: 4px solid white;
+    text-align: center;
+}
+
 #resultScreen {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: 20px;
@@ -83,4 +92,5 @@ h2 {
     gap: 20px;
     margin-top: -25px;
 }
+
 
