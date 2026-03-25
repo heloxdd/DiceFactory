@@ -31,18 +31,26 @@
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg1">
-    <inkscape:page
-       x="0"
-       y="0"
-       width="20"
-       height="20"
-       id="page2"
-       margin="0"
-       bleed="0" />
-  </sodipodi:namedview>
+     inkscape:current-layer="svg1" />
   <defs
      id="defs1">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5">
+      <circle
+         style="display:none;fill:#3956ac;fill-opacity:1;stroke-width:0.512453"
+         id="circle5"
+         clip-path="none"
+         r="10.5"
+         cy="8.6999998"
+         cx="8.6999998"
+         d="M 19.2,8.6999998 A 10.5,10.5 0 0 1 8.6999998,19.2 a 10.5,10.5 0 0 1 -10.5,-10.5000002 10.5,10.5 0 0 1 10.5,-10.5 10.5,10.5 0 0 1 10.5000002,10.5 z" />
+      <path
+         id="lpe_path-effect5"
+         style="display:inline;fill:#3956ac;fill-opacity:1;stroke-width:0.512453"
+         class="powerclip"
+         d="M -5,-5 H 25 V 25 H -5 Z M 19.2,8.6999998 a 10.5,10.5 0 0 0 -10.5000002,-10.5 10.5,10.5 0 0 0 -10.5,10.5 A 10.5,10.5 0 0 0 8.6999998,19.2 10.5,10.5 0 0 0 19.2,8.6999998 Z" />
+    </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath2">

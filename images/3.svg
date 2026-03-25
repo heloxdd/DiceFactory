@@ -7,27 +7,72 @@
    viewBox="0 0 20 20"
    version="1.1"
    id="svg1"
+   sodipodi:docname="3.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   inkscape:export-filename="..\3.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="11.346928"
+     inkscape:cx="22.825562"
+     inkscape:cy="45.959577"
+     inkscape:window-width="2560"
+     inkscape:window-height="1494"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="20"
+       height="20"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
   <defs
      id="defs1">
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipPath5">
-      <circle
-         style="display:none;fill:#3956ac;fill-opacity:1;stroke-width:0.512453"
-         id="circle5"
-         clip-path="none"
-         r="10.5"
-         cy="8.6999998"
-         cx="8.6999998"
-         d="M 19.2,8.6999998 A 10.5,10.5 0 0 1 8.6999998,19.2 a 10.5,10.5 0 0 1 -10.5,-10.5000002 10.5,10.5 0 0 1 10.5,-10.5 10.5,10.5 0 0 1 10.5000002,10.5 z" />
+       id="clipPath2">
+      <rect
+         style="display:none;fill:#9bcdfd;fill-opacity:1;stroke-width:0.206375"
+         id="rect4"
+         width="19.5"
+         height="19.5"
+         x="-1"
+         y="-1"
+         ry="7.7999997"
+         d="M 6.7999997,-1 H 10.7 c 4.3212,0 7.8,3.4787999 7.8,7.7999997 V 10.7 c 0,4.3212 -3.4788,7.8 -7.8,7.8 H 6.7999997 C 2.4787999,18.5 -1,15.0212 -1,10.7 V 6.7999997 C -1,2.4787999 2.4787999,-1 6.7999997,-1 Z" />
       <path
-         id="lpe_path-effect5"
-         style="display:inline;fill:#3956ac;fill-opacity:1;stroke-width:0.512453"
+         id="lpe_path-effect4"
+         style="fill:#9bcdfd;fill-opacity:1;stroke-width:0.206375"
          class="powerclip"
-         d="M -5,-5 H 25 V 25 H -5 Z M 19.2,8.6999998 a 10.5,10.5 0 0 0 -10.5000002,-10.5 10.5,10.5 0 0 0 -10.5,10.5 A 10.5,10.5 0 0 0 8.6999998,19.2 10.5,10.5 0 0 0 19.2,8.6999998 Z" />
+         d="M -5,-5 H 25 V 25 H -5 Z M 6.7999997,-1 C 2.4787999,-1 -1,2.4787999 -1,6.7999997 V 10.7 c 0,4.3212 3.4787999,7.8 7.7999997,7.8 H 10.7 c 4.3212,0 7.8,-3.4788 7.8,-7.8 V 6.7999997 C 18.5,2.4787999 15.0212,-1 10.7,-1 Z" />
     </clipPath>
+    <inkscape:path-effect
+       effect="powerclip"
+       message=""
+       id="path-effect4"
+       is_visible="true"
+       lpeversion="1"
+       inverse="true"
+       flatten="false"
+       hide_clip="false" />
   </defs>
   <g
      id="layer1">
@@ -40,11 +85,27 @@
        y="0"
        ry="5"
        clip-path="none" />
+    <path
+       style="display:inline;mix-blend-mode:multiply;fill:#cccccc;fill-opacity:1;stroke-width:0.265198"
+       id="rect2-8"
+       width="20"
+       height="20"
+       x="0"
+       y="0"
+       ry="5"
+       clip-path="url(#clipPath2)"
+       d="m 5,0 h 10 c 2.77,0 5,2.23 5,5 v 10 c 0,2.77 -2.23,5 -5,5 H 5 C 2.23,20 0,17.77 0,15 V 5 C 0,2.23 2.23,0 5,0 Z"
+       inkscape:original-d="m 5,0 h 10 c 2.77,0 5,2.23 5,5 v 10 c 0,2.77 -2.23,5 -5,5 H 5 C 2.23,20 0,17.77 0,15 V 5 C 0,2.23 2.23,0 5,0 Z"
+       inkscape:path-effect="#path-effect4" />
+  </g>
+  <g
+     id="layer2"
+     style="display:inline">
     <circle
        style="display:inline;fill:#ffffff;fill-opacity:1;stroke-width:0.529167"
-       id="path3"
-       cx="15"
-       cy="15"
+       id="circle7"
+       cx="5"
+       cy="5"
        r="2" />
     <circle
        style="display:inline;fill:#ffffff;fill-opacity:1;stroke-width:0.529167"
@@ -54,23 +115,9 @@
        r="2" />
     <circle
        style="display:inline;fill:#ffffff;fill-opacity:1;stroke-width:0.529167"
-       id="circle7"
-       cx="5"
-       cy="5"
+       id="path3"
+       cx="15"
+       cy="15"
        r="2" />
-  </g>
-  <g
-     id="layer2"
-     style="display:inline">
-    <path
-       style="display:inline;mix-blend-mode:multiply;fill:#cccccc;fill-opacity:1;stroke-width:0.265198"
-       id="rect2-8"
-       width="20"
-       height="20"
-       x="0"
-       y="0"
-       ry="5"
-       clip-path="url(#clipPath5)"
-       d="m 5,0 h 10 c 2.77,0 5,2.23 5,5 v 10 c 0,2.77 -2.23,5 -5,5 H 5 C 2.23,20 0,17.77 0,15 V 5 C 0,2.23 2.23,0 5,0 Z" />
   </g>
 </svg>
