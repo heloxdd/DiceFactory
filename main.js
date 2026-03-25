@@ -46,7 +46,15 @@ for (let i = 1; i <= 12; i++) {
         event.preventDefault();
     })
     die.addEventListener("touchend", function(event) {
-        let target = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+        let targets = document.elementsFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+        let target;
+
+        for (i=0;true;i++) {
+            target = targets[i];
+            if (target.tagName.toLowerCase()==='div') {
+                break;
+            }
+        }
 
         let temp = startDrag.textContent;
         startDrag.textContent = target.textContent;
