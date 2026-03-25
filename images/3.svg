@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="20mm"
+   height="20mm"
+   viewBox="0 0 20 20"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5">
+      <circle
+         style="display:none;fill:#3956ac;fill-opacity:1;stroke-width:0.512453"
+         id="circle5"
+         clip-path="none"
+         r="10.5"
+         cy="8.6999998"
+         cx="8.6999998"
+         d="M 19.2,8.6999998 A 10.5,10.5 0 0 1 8.6999998,19.2 a 10.5,10.5 0 0 1 -10.5,-10.5000002 10.5,10.5 0 0 1 10.5,-10.5 10.5,10.5 0 0 1 10.5000002,10.5 z" />
+      <path
+         id="lpe_path-effect5"
+         style="display:inline;fill:#3956ac;fill-opacity:1;stroke-width:0.512453"
+         class="powerclip"
+         d="M -5,-5 H 25 V 25 H -5 Z M 19.2,8.6999998 a 10.5,10.5 0 0 0 -10.5000002,-10.5 10.5,10.5 0 0 0 -10.5,10.5 A 10.5,10.5 0 0 0 8.6999998,19.2 10.5,10.5 0 0 0 19.2,8.6999998 Z" />
+    </clipPath>
+  </defs>
+  <g
+     id="layer1">
+    <rect
+       style="display:inline;fill:#3aac7c;fill-opacity:1;stroke-width:0.265197"
+       id="rect3"
+       width="20"
+       height="20"
+       x="-7.1054274e-15"
+       y="0"
+       ry="5"
+       clip-path="none" />
+    <circle
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke-width:0.529167"
+       id="path3"
+       cx="15"
+       cy="15"
+       r="2" />
+    <circle
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke-width:0.529167"
+       id="circle6"
+       cx="10"
+       cy="10"
+       r="2" />
+    <circle
+       style="display:inline;fill:#ffffff;fill-opacity:1;stroke-width:0.529167"
+       id="circle7"
+       cx="5"
+       cy="5"
+       r="2" />
+  </g>
+  <g
+     id="layer2"
+     style="display:inline">
+    <path
+       style="display:inline;mix-blend-mode:multiply;fill:#cccccc;fill-opacity:1;stroke-width:0.265198"
+       id="rect2-8"
+       width="20"
+       height="20"
+       x="0"
+       y="0"
+       ry="5"
+       clip-path="url(#clipPath5)"
+       d="m 5,0 h 10 c 2.77,0 5,2.23 5,5 v 10 c 0,2.77 -2.23,5 -5,5 H 5 C 2.23,20 0,17.77 0,15 V 5 C 0,2.23 2.23,0 5,0 Z" />
+  </g>
+</svg>

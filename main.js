@@ -170,6 +170,6 @@ function toggleRules() {
 
 function renderDie(die) {
     let dieImage=document.createElement("img");
-    dieImage.setAttribute("src", "images/"+die.textContent+".png");
+    dieImage.setAttribute("src", "images/"+die.textContent+".svg");
     die.appendChild(dieImage);
 }
