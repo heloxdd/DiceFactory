@@ -49,19 +49,21 @@ for (let i = 1; i <= 12; i++) {
         let targets = document.elementsFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
         let target;
 
-        for (i=0;true;i++) {
+        for (i = 0; true; i++) {
             target = targets[i];
-            if (target.tagName.toLowerCase()==='div') {
+            if (target.tagName.toLowerCase() === 'div' && (p1Container.contains(target) || p2Container.contains(target))) {
                 break;
             }
         }
 
-        let temp = startDrag.textContent;
-        startDrag.textContent = target.textContent;
-        target.textContent = temp;
+        if (target !== startDrag) {
+            let temp = startDrag.textContent;
+            startDrag.textContent = target.textContent;
+            target.textContent = temp;
 
-        renderDie(target);
-        renderDie(startDrag);
+            renderDie(target);
+            renderDie(startDrag);
+        }
     })
 
     renderDie(die);
