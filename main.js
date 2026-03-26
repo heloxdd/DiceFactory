@@ -24,19 +24,21 @@ for (let i = 1; i <= 12; i++) {
     die.className = "die";
     die.draggable = true;
 
-    die.ondragstart = function() {
+    die.ondragstart = function () {
         startDrag = die;
     }
-    die.ondragover = function(event) {
+    die.ondragover = function (event) {
         event.preventDefault();
     }
-    die.ondrop = function() {
-        let temp = startDrag.textContent;
-        startDrag.textContent = die.textContent;
-        die.textContent = temp;
+    die.ondrop = function () {
+        if (startDrag !== die) {
+            let temp = startDrag.textContent;
+            startDrag.textContent = die.textContent;
+            die.textContent = temp;
 
-        renderDie(die);
-        renderDie(startDrag);
+            renderDie(die);
+            renderDie(startDrag);
+        }
     }
 
     die.addEventListener("touchstart", function(_event) {
