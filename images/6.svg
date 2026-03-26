@@ -2,14 +2,14 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="20mm"
-   height="20mm"
-   viewBox="0 0 20 20"
-   version="1.1"
-   id="svg1"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
+        width="20mm"
+        height="20mm"
+        viewBox="0 0 20 20"
+        version="1.1"
+        id="svg1"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns="http://www.w3.org/2000/svg"
+>
   <defs
      id="defs1">
     <clipPath
@@ -22,8 +22,7 @@
          height="19.5"
          x="-1"
          y="-1"
-         ry="7.7999997"
-         d="M 6.7999997,-1 H 10.7 c 4.3212,0 7.8,3.4787999 7.8,7.7999997 V 10.7 c 0,4.3212 -3.4788,7.8 -7.8,7.8 H 6.7999997 C 2.4787999,18.5 -1,15.0212 -1,10.7 V 6.7999997 C -1,2.4787999 2.4787999,-1 6.7999997,-1 Z" />
+         ry="7.7999997"/>
       <path
          id="lpe_path-effect4"
          style="fill:#9bcdfd;fill-opacity:1;stroke-width:0.206375"
@@ -45,11 +44,6 @@
     <path
        style="display:inline;mix-blend-mode:multiply;fill:#cccccc;fill-opacity:1;stroke-width:0.265198"
        id="rect2-8"
-       width="20"
-       height="20"
-       x="0"
-       y="0"
-       ry="5"
        clip-path="url(#clipPath2)"
        d="m 5,0 h 10 c 2.77,0 5,2.23 5,5 v 10 c 0,2.77 -2.23,5 -5,5 H 5 C 2.23,20 0,17.77 0,15 V 5 C 0,2.23 2.23,0 5,0 Z" />
   </g>
