@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name = "viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
     <title>DiceFactory</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
@@ -14,15 +14,15 @@
 
         <h2> DICE ABILITIES<br><br>
                 1: Gives you three points.            <br><br>
-                2: Adds one to the value of the       <br>
-                   next die (ex. a 3 becomes a 4).    <br><br>
-                3: Swaps current die with the next    <br>
-                   die the enemy will use.            <br>
-                   The enemy rerolls the 3.           <br><br>
-                4: Turns into the previous die        <br>
-                   and uses itself.                   <br><br>
-                5: Gives you +50% points but          <br>
-                   gives enemy 3 points.              <br><br>
+                2: Adds one to the value of the
+                   next die (ex. a 3 becomes a 4).    <br>
+                3: Swaps current die with the next
+                   die the enemy will use.
+                   The enemy rerolls the 3.           <br>
+                4: Turns into the previous die
+                   and uses itself.                   <br>
+                5: Gives you +50% points but
+                   gives enemy 3 points.              <br>
                 6: Next die has 2X effects.
         </h2>
 
@@ -30,9 +30,9 @@
 
     <div id="p1Screen" class="screen" style="display: flex;">
 
-        <h2 style="height: 0; font-size: 2.4vw;">Player 1 - Arrange your dice</h2>
-        <h2 style="height: 0; font-size: 2.4vw;" id="p2DicePreview"></h2>
-        <h2 style="height: 0; font-size: 2.4vw;">Your dice are: </h2>
+        <h2 style="height: 0; font-size: 2.4svw;">Player 1 - Arrange your dice</h2>
+        <h2 style="height: 0; font-size: 2.4svw;" id="p2DicePreview"></h2>
+        <h2 style="height: 0; font-size: 2.4svw;">Your dice are: </h2>
         <div id="p1DiceContainer" class="diceContainer">
         </div>
         <button onclick="ready()"> ready </button>
@@ -41,9 +41,9 @@
 
     <div id="p2Screen" class="screen" style="display: none;">
 
-        <h2 style="height: 0; font-size: 2.4vw;">Player 2 - Arrange your dice</h2>
-        <h2 style="height: 0; font-size: 2.4vw;" id="p1DicePreview"></h2>
-        <h2 style="height: 0; font-size: 2.4vw;">Your dice are: </h2>
+        <h2 style="height: 0; font-size: 2.4svw;">Player 2 - Arrange your dice</h2>
+        <h2 style="height: 0; font-size: 2.4svw;" id="p1DicePreview"></h2>
+        <h2 style="height: 0; font-size: 2.4svw;">Your dice are: </h2>
         <div id="p2DiceContainer" class="diceContainer">
         </div>
 
@@ -53,9 +53,9 @@
 
     <div id="resultScreen" class="screen">
 
-        <h2 id="resultText" style="font-size: 1.75vw; text-align: center; line-height: 2; display: flex;"> loading... </h2>
+        <h2 id="resultText" style="font-size: 1.75svw; text-align: center; line-height: 2; display: flex;"> loading... </h2>
 
-        <h2 id="winText" style="font-size: 3.5vw; text-align: center; line-height: 2; display: none;"> loading... </h2>
+        <h2 id="winText" style="font-size: 3.5svw; text-align: center; line-height: 2; display: none;"> loading... </h2>
 
         <div id="resultNavigationButtons">
 
