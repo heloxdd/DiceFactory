@@ -1,5 +1,14 @@
 C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\Application.java
+C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\entities\Contact.java
+C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\entities\CurGames.java
+C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\entities\Games.java
+C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\entities\User.java
 C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\GameController.java
 C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\GameFactory.java
 C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\GameRequest.java
+C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\OnlineReadyRequest.java
 C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\PlayerDice.java
+C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\repositories\ContactRepo.java
+C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\repositories\CurGamesRepo.java
+C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\repositories\GamesRepo.java
+C:\Users\yetig\OneDrive\Desktop\Programming\java\DiceFactory\src\main\java\spring\repositories\UsersRepo.java

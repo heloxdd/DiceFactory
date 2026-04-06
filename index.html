@@ -3,10 +3,19 @@
 <head>
     <meta name = "viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
     <title>DiceFactory</title>
+    <link  id="icon" rel="icon" href="images/test images/6.svg">
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
+
+    <div id="onlineScreen" class="screen" style="display: flex">
+
+        <button id="localButton" onclick = "playLocal()">Play Local</button>
+
+        <button id="onlineButton">Play Online</button>
+
+    </div>
 
     <button id="rulesButton" onclick="toggleRules()"> rules </button>
 
@@ -28,14 +37,14 @@
 
     </div>
 
-    <div id="p1Screen" class="screen" style="display: flex;">
+    <div id="p1Screen" class="screen" style="display: none;">
 
         <h2 style="height: 0; font-size: 2.4svw;">Player 1 - Arrange your dice</h2>
         <h2 style="height: 0; font-size: 2.4svw;" id="p2DicePreview"></h2>
         <h2 style="height: 0; font-size: 2.4svw;">Your dice are: </h2>
         <div id="p1DiceContainer" class="diceContainer">
         </div>
-        <button onclick="ready()"> ready </button>
+        <button onclick="p1ready()"> ready </button>
 
     </div >
 
@@ -47,7 +56,7 @@
         <div id="p2DiceContainer" class="diceContainer">
         </div>
 
-        <button onclick="run()"> ready </button>
+        <button onclick="p2ready()"> ready </button>
 
     </div >
 

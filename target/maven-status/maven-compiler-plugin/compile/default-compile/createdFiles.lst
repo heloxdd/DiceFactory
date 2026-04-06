@@ -1,5 +1,14 @@
+spring\entities\CurGames.class
 spring\PlayerDice.class
 spring\GameRequest.class
 spring\GameController.class
+spring\repositories\ContactRepo.class
+spring\entities\Contact.class
 spring\GameFactory.class
 spring\Application.class
+spring\entities\Games.class
+spring\repositories\GamesRepo.class
+spring\OnlineReadyRequest.class
+spring\repositories\CurGamesRepo.class
+spring\repositories\UsersRepo.class
+spring\entities\User.class

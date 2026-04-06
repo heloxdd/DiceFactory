@@ -11,11 +11,17 @@ let prevFrameButton = document.getElementById("prevFrameButton");
 let winText = document.getElementById("winText");
 let rulesDisplay = document.getElementById("rulesDisplay");
 let rulesButton = document.getElementById("rulesButton");
+let localButton = document.getElementById("localButton");
+let onlineButton = document.getElementById("onlineButton");
+let icon = document.getElementById("icon");
+let iconImg = Math.ceil(Math.random() * 6);
 let startDrag = null;
 let currentResult=-8;
 let p1Dice = [];
 let p2Dice = [];
 let results;
+
+icon.href = "images/"+iconImg+".svg";
 
 
 for (let i = 1; i <= 12; i++) {
@@ -85,12 +91,12 @@ for (let i = 0; i < 6; i++) {
 p2DicePreview.textContent = ("Enemy's dice are: "+p2Dice.join(", ").toString());
 p1DicePreview.textContent = ("Enemy's dice are: "+p1Dice.join(", ").toString()); //create opposing player dice views
 
-function ready() {
+function p1ready() {
     p1screen.style.display = "none";
     p2screen.style.display = "flex";
 } //p1 ready
 
-function run() {
+function p2ready() {
     p2screen.style.display = "none";
     resultScreen.style.display = "flex";
     p1Dice = [];
@@ -103,7 +109,7 @@ function run() {
         p2Dice.push(parseInt(p2Container.children[i].textContent));
     }
 
-    fetch("https://dicefactory-production.up.railway.app/api/play", {
+    fetch("http://localhost:8080/api/play", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
@@ -174,4 +180,10 @@ function renderDie(die) {
     let dieImage=document.createElement("img");
     dieImage.setAttribute("src", "images/"+die.textContent+".svg");
     die.appendChild(dieImage);
+}
+
+function playLocal() {
+    p1screen.style.display = "flex";
+    localButton.style.display = "none";
+    onlineButton.style.display = "none";
 }
