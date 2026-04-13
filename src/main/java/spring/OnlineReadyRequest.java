@@ -5,9 +5,9 @@ import java.util.List;
 public class OnlineReadyRequest {
     private int gameId;
     private int playerId;
-    private List<Integer> playerDice;
+    private String playerDice;
 
     public int getGameId() {return gameId;}
     public int getPlayerId() {return playerId;}
-    public List<Integer> getPlayerDice() {return playerDice;}
+    public String getPlayerDice() {return playerDice;}
 }
