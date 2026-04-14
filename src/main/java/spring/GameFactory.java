@@ -183,13 +183,8 @@ public class GameFactory {
         }
     }
     public void five(PlayerDice player, PlayerDice enemy) {
-        if (player.points%2==0) {
-            player.points*= (long) (1+(player.mult*0.5));
-        }
-        else {
-            player.points*= (long) (1+(player.mult*0.5));
-            player.points+=1;
-        }
+        player.points += (long) (player.mult*0.5*player.points);
+
         enemy.points+= 3L *player.mult;
         resultPile.add("Player got +"+50*player.mult+"% more points. Enemy got +"+3*player.mult+" points. ");
         player.mult=1;
