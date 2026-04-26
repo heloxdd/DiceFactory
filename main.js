@@ -18,6 +18,9 @@ let p2Dice = [];
 let results;
 
 
+
+
+
 for (let i = 1; i <= 12; i++) {
     const die = document.createElement("div");
     die.textContent = String(Math.ceil(Math.random() * 6));
@@ -53,7 +56,7 @@ for (let i = 1; i <= 12; i++) {
 
         for (i = 0; true; i++) {
             target = targets[i];
-            if (target.tagName.toLowerCase() === 'div' && (p1Container.contains(target) || p2Container.contains(target))) {
+            if (target.parentElement.id==="p1DiceContainer" || target.parentElement.id==="p2DiceContainer") {
                 break;
             }
         }
@@ -103,7 +106,7 @@ function run() {
         p2Dice.push(parseInt(p2Container.children[i].textContent));
     }
 
-    fetch("https://dicefactory-production.up.railway.app/api/play", {
+    fetch("http://localhost:8080/api/playgit ", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
@@ -172,6 +175,6 @@ function toggleRules() {
 
 function renderDie(die) {
     let dieImage=document.createElement("img");
-    dieImage.setAttribute("src", "images/"+die.textContent+".svg");
+    dieImage.setAttribute("src", "images/seagreen/"+die.textContent+".svg");
     die.appendChild(dieImage);
 }
