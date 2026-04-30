@@ -11,14 +11,14 @@ let prevFrameButton = document.getElementById("prevFrameButton");
 let winText = document.getElementById("winText");
 let rulesDisplay = document.getElementById("rulesDisplay");
 let rulesButton = document.getElementById("rulesButton");
+let icon = document.getElementById("icon");
 let startDrag = null;
 let currentResult=-8;
 let p1Dice = [];
 let p2Dice = [];
 let results;
 
-
-
+icon.href = ("images/seagreen/"+String(Math.ceil(Math.random()*6)+".svg"));
 
 
 for (let i = 1; i <= 12; i++) {
@@ -106,7 +106,7 @@ function run() {
         p2Dice.push(parseInt(p2Container.children[i].textContent));
     }
 
-    fetch("http://localhost:8080/api/playgit ", {
+    fetch("http://localhost:8080/api/play", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
