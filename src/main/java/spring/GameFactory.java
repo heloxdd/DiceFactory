@@ -93,7 +93,7 @@ public class GameFactory {
         results.add("Player 2's points: "+p2.points);
         return results;
     }
-    public String diceString(List<Integer> dice) {
+    private String diceString(List<Integer> dice) {
         StringBuilder retval = new StringBuilder();
         for (int i=0;i<diceAmount;i++){
             retval.append(dice.get(i).toString());
@@ -103,12 +103,12 @@ public class GameFactory {
         }
         return retval.toString();
     }
-    public void one(PlayerDice player) {
+    private void one(PlayerDice player) {
         player.points+= 3L *player.mult;
         resultPile.add("Player got 3 * "+player.mult+" points. ");
         player.mult=1;
     }
-    public void two(PlayerDice player, int index) {
+    private void two(PlayerDice player, int index) {
         if (index<diceAmount-1) {
             int curValue = player.get(index+1);
             int newValue = (curValue+player.mult)%6;
@@ -122,7 +122,7 @@ public class GameFactory {
             resultPile.add("Nothing happened, two was the last die. ");
         }
     }
-    public void three(PlayerDice player, PlayerDice enemy, int enemyIndex, int index) {
+    private void three(PlayerDice player, PlayerDice enemy, int enemyIndex, int index) {
         if (player.mult==1 && enemyIndex!=diceAmount) {
             player.setDice(index, enemy.get(enemyIndex));
             enemy.setDice(enemyIndex, random.nextInt(6)+1);
@@ -154,7 +154,7 @@ public class GameFactory {
             resultPile.add("Nothing happened because this three was the last die. ");
         }
     }
-    public void four(PlayerDice player, PlayerDice enemy, int index, int enemyIndex) {
+    private void four(PlayerDice player, PlayerDice enemy, int index, int enemyIndex) {
         if (index>0) {
             switch (player.get(index-1)) {
                 case 1:
@@ -182,15 +182,29 @@ public class GameFactory {
             resultPile.add("Nothing happened, this 4 was the first die. ");
         }
     }
-    public void five(PlayerDice player, PlayerDice enemy) {
+    private void five(PlayerDice player, PlayerDice enemy) {
         player.points += (long) (player.mult*0.5*player.points);
 
         enemy.points+= 3L *player.mult;
         resultPile.add("Player got +"+50*player.mult+"% more points. Enemy got +"+3*player.mult+" points. ");
         player.mult=1;
     }
-    public void six(PlayerDice player)  {
+    private void six(PlayerDice player)  {
         player.mult*=2;
         resultPile.add("Mult was doubled. ");
-    } 
+    }
+
+    public PlayerDice getP1Dice() {
+        return p1;
+    }
+    public PlayerDice getP2Dice() {
+        return p2;
+    }
+    public long getP1Points() {
+        return p1.points;
+    }
+    public long getP2Points() {
+        return p2.points;
+    }
+
 }

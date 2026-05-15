@@ -5,20 +5,30 @@ services:
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: qwertyuiop
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d diceFactory"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     ports:
       - "5050:5432"
     restart: always
 
   spring-boot:
     build: .
+    pull_policy: build
     ports:
       - "8080:8080"
     container_name: spring-boot
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/diceFactory
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
       POSTGRES_HOST: db
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: qwertyuiop
+
 
 
