@@ -1,12 +1,23 @@
 package spring;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserRequest {
-    private int id;
+    @JsonProperty("id")
+    private Integer id;
     private String username;
+    private String email;
+    @JsonProperty("password")
+    private String password = "";
+    private Boolean isAdmin = false;
 
     public int getPlayerId() { return id; }
+    public boolean getIsAdmin() { return isAdmin; }
     public String getUsername() { return username; }
-    public void setUsername(String newUsername) { username = newUsername; }
+    public String getEmail() { return email; }
+    public String getPassword() { return Encryptor.encrypt(password); }
+
+    public String toString(){
+        return this.id +"";
+    }
 }

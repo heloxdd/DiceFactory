@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/30d0cb21-9413-41ef-a74e-b0234ef75721/console.sql" value="30d0cb21-9413-41ef-a74e-b0234ef75721" />
+    <file url="file://$PROJECT_DIR$/src/main/java/spring/GameController.java" value="30d0cb21-9413-41ef-a74e-b0234ef75721" />
+  </component>
+</project>

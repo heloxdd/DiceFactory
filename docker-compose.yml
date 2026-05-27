@@ -1,12 +1,13 @@
 services:
   postgres:
     image: postgres:latest
-    container_name: diceFactoryDB
+    container_name: diceFactory
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: qwertyuiop
+      POSTGRES_DB: diceFactory
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U user -d diceFactory"]
+      test: ["CMD-SHELL", "pg_isready -U admin -d diceFactory"]
       interval: 5s
       timeout: 5s
       retries: 5
