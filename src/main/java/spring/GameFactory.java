@@ -8,6 +8,7 @@ public class GameFactory {
     Random random = new Random();
     List<String> results = new ArrayList<>();
     List<String> resultPile = new ArrayList<>();
+    String winner;
     
     public GameFactory(PlayerDice p1, PlayerDice p2, int diceAmount) {
         this.p1=p1;
@@ -75,19 +76,22 @@ public class GameFactory {
                 results.add("Player 1's dice: "+diceString(p1.getDice()));
                 results.add("Player 2's dice: "+diceString(p2.getDice()));
                 p2index+=1;
-                results.add("Player 2's points: "+p2.points);
                 results.add("Player 1's points: "+p1.points);
-                results.add("Player 2's mult: "+p2.mult);
+                results.add("Player 2's points: "+p2.points);
                 results.add("Player 1's mult: "+p1.mult);
+                results.add("Player 2's mult: "+p2.mult);
                 resultPile.clear();
             }
         }
         if (p1.points>p2.points) {
             results.add("Player 1 won!");
+            winner="p1";
         } else if (p1.points==p2.points) {
             results.add("The game was a tie!");
+            winner="";
         } else {
             results.add("Player 2 won!");
+            winner="p2";
         }
         results.add("Player 1's points: "+p1.points);
         results.add("Player 2's points: "+p2.points);
@@ -194,17 +198,8 @@ public class GameFactory {
         resultPile.add("Mult was doubled. ");
     }
 
-    public PlayerDice getP1Dice() {
-        return p1;
-    }
-    public PlayerDice getP2Dice() {
-        return p2;
-    }
-    public long getP1Points() {
-        return p1.points;
-    }
-    public long getP2Points() {
-        return p2.points;
-    }
+    public int getP1Points() { return (int) p1.points; }
+    public int getP2Points() { return (int) p2.points; }
+    public String getWinner() { return winner; }
 
 }

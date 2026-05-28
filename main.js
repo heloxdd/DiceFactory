@@ -110,8 +110,10 @@ function run() {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
-            player1: p1Dice,
-            player2: p2Dice
+            player1ID: 1,
+            player2ID: 2,
+            player1Dice: p1Dice,
+            player2Dice: p2Dice
         })
     })
     .then(response => response.json())

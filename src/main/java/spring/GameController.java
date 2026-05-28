@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
@@ -28,62 +29,84 @@ public class GameController {
     @PostMapping("/play")
     public List<String> play(@RequestBody GameRequest request) {
 
+        int winner;
         PlayerDice player1 = new PlayerDice(request.getP1Dice());
         PlayerDice player2 = new PlayerDice(request.getP2Dice());
         GameFactory factory = new GameFactory(player1, player2, player1.diceAmount);
+        List<String> result = factory.run();
 
-//        PreparedStatement psmt;
-//        try (Connection conn = dataSource.getConnection()) {
-//
-//            psmt = conn.prepareStatement("INSERT INTO games VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-//            psmt.setInt(1, request.getID());
-//            psmt.setInt(2, request.getP1ID());
-//            psmt.setInt(3, request.getP2ID());
-//            psmt.setString(4, request.getPreGameP1Dice().toString());
-//            psmt.setString(5, request.getPreGameP2Dice().toString());
-//            psmt.setInt(6, request.getP1Points());
-//            psmt.setInt(7, request.getP2Points());
-//            psmt.setTimestamp(8, request.getDate());
-//            psmt.setInt(9, request.getWinnerID());
-//            psmt.executeUpdate();
-//
-//        }
-//        catch (SQLException e) {
-//
-//            log.error("error: ", e);
-//
-//        }
+        winner = switch (factory.getWinner()) {
 
-        return factory.run();
+            case "p1" -> request.getP1ID();
+            case "p2" -> request.getP2ID();
+            default -> 7629157;
+
+        };
+
+        PreparedStatement psmt;
+        try (Connection conn = dataSource.getConnection()) {
+
+            psmt = conn.prepareStatement("SELECT MAX(id) FROM games");
+            ResultSet rs = psmt.executeQuery();
+            rs.next();
+            int newId = rs.getInt(1)+1;
+
+            psmt = conn.prepareStatement("INSERT INTO games VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            psmt.setInt(1, newId);
+            psmt.setInt(2, request.getP1ID());
+            psmt.setInt(3, request.getP2ID());
+            psmt.setString(4, request.getP1Dice().toString());
+            psmt.setString(5, request.getP2Dice().toString());
+            psmt.setInt(6, factory.getP1Points());
+            psmt.setInt(7, factory.getP2Points());
+            psmt.setTimestamp(8, Timestamp.from(Instant.now()));
+            psmt.setInt(9, winner);
+            psmt.executeUpdate();
+
+        }
+        catch (SQLException e) {
+
+            log.error("error: ", e);
+
+        }
+
+        return result;
 
     }
 
     @PostMapping("/new-user")
     public ResponseEntity<String> newPlayer(@RequestBody UserRequest request) {
-        DataSource dataSource = this.dataSource;
-        log.info("{}, id", request.getPlayerId());
-        log.info("{}, username", request.getUsername());
-        log.info("{}, encrypted password", request.getPassword());
-        log.info("{}, email", request.getEmail());
-        log.info("{}, id", request.getPlayerId());
-        log.info("{}, is admin", request.getIsAdmin());
-        PreparedStatement psmt;
-        List<Integer> results = new ArrayList<>();
-        List<String> otherResults = new ArrayList<>();
-
-
 
         try (Connection conn = dataSource.getConnection()) {
+
+            PreparedStatement psmt;
+            ResultSet resultSet;
+
+            psmt = conn.prepareStatement("SELECT MAX(id) FROM users");
+            ResultSet rs = psmt.executeQuery();
+            rs.next();
+            int newId = rs.getInt(1)+1;
+
+            DataSource dataSource = this.dataSource;
+            log.info("{}, id", newId);
+            log.info("{}, username", request.getUsername());
+            log.info("{}, encrypted password", request.getPassword());
+            log.info("{}, email", request.getEmail());
+            log.info("{}, id", newId);
+            log.info("{}, is admin", false);
+            log.info("");
+            List<Integer> results = new ArrayList<>();
+            List<String> otherResults = new ArrayList<>();
 
             //Makes sure there is no duplicate id
 
             psmt = conn.prepareStatement("SELECT id FROM users WHERE id=(?)");
-            psmt.setInt(1, request.getPlayerId());
-            ResultSet resultSet = psmt.executeQuery();
+            psmt.setInt(1, newId);
+            resultSet = psmt.executeQuery();
             while (resultSet.next()) {
                 results.add(resultSet.getInt("id"));
             }
-            if (!results.isEmpty()) {
+            if (!results.isEmpty() | newId == 7629157) {
                 return new ResponseEntity<>("ID Already Exists. ", HttpStatus.BAD_REQUEST);
             }
 
@@ -107,7 +130,7 @@ public class GameController {
 
             String insertc = "INSERT INTO users VALUES (?, ? )";
             psmt = conn.prepareStatement(insertc);
-            psmt.setInt(1, request.getPlayerId());
+            psmt.setInt(1, newId);
             psmt.setString(2, request.getUsername());
 
             System.out.println(conn.getMetaData().getDatabaseProductVersion());
@@ -119,10 +142,10 @@ public class GameController {
 
             insertc = "INSERT INTO contacts VALUES (?, ?, ?, ?)";
             psmt = conn.prepareStatement(insertc);
-            psmt.setInt(1, request.getPlayerId());
-            psmt.setString(2, request.getEmail());
-            psmt.setString(3, request.getPassword());
-            psmt.setBoolean(4, request.getIsAdmin());
+            psmt.setInt(1, newId);
+            psmt.setString(2, request.getPassword());
+            psmt.setString(3, request.getEmail());
+            psmt.setBoolean(4, false);
 
             System.out.println(conn.getMetaData().getDatabaseProductVersion());
             psmt.executeUpdate();
