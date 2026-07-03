@@ -55,6 +55,24 @@ img {
     width: 10svw;
 }
 
+input[type="text"] {
+    font-size: 5rem;
+    height: 10vh;
+    width: 30vw;
+    border-radius: 6vh;
+    background-color: mediumseagreen;
+    color: white;
+}
+
+input {
+    padding: 2vh 2vw 3vh 2vw;
+}
+
+input::placeholder {
+    color: #9696ff;
+}
+
+
 #rulesButton {
     transform: translate(35svw, -30svh);
     display: flex;

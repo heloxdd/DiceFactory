@@ -9,9 +9,20 @@
 
 <body>
 
-    <button id="rulesButton" onclick="toggleRules()"> rules </button>
+<!--    <button id="loginButton" onclick="login()"> login </button>-->
 
-    <div id="rulesDisplay">
+<!--    <div id="loginScreen" style="display: none;">-->
+
+<!--        <label for="usernameInput"></label>-->
+<!--        <input id="usernameInput" type="text" placeholder="username">-->
+
+<!--    </div>-->
+
+    <div id="menu" class="screen" style="display: flex">
+
+        <button id="rulesButton" onclick="toggleRules()"> rules </button>
+
+        <div id="rulesDisplay">
 
         <h2> DICE ABILITIES<br><br>
                 1: Gives you three points.            <br><br>
@@ -27,9 +38,9 @@
                 6: Next die has 2X effects.
         </h2>
 
-    </div>
+        </div>
 
-    <div id="p1Screen" class="screen" style="display: flex;">
+        <div id="p1Screen" class="screen" style="display: flex;">
 
         <h2 style="height: 0; font-size: 2.4svw;">Player 1 - Arrange your dice</h2>
         <h2 style="height: 0; font-size: 2.4svw;" id="p2DicePreview"></h2>
@@ -40,7 +51,7 @@
 
     </div >
 
-    <div id="p2Screen" class="screen" style="display: none;">
+        <div id="p2Screen" class="screen" style="display: none;">
 
         <h2 style="height: 0; font-size: 2.4svw;">Player 2 - Arrange your dice</h2>
         <h2 style="height: 0; font-size: 2.4svw;" id="p1DicePreview"></h2>
@@ -52,23 +63,27 @@
 
     </div >
 
-    <div id="resultScreen" class="screen">
+        <div id="resultScreen" class="screen">
 
-        <h2 id="resultText" style="font-size: 1.75svw; text-align: center; line-height: 2; display: flex;"> loading... </h2>
+            <h2 id="resultText" style="font-size: 6svw; text-align: center; line-height: 2;"> loading... </h2>
 
-        <h2 id="winText" style="font-size: 3.5svw; text-align: center; line-height: 2; display: none;"> loading... </h2>
+            <h2 id="winText" style="font-size: 3.5svw; text-align: center; line-height: 2; display: none;"> loading... </h2>
 
-        <div id="resultNavigationButtons">
+            <div id="resultNavigationButtons">
 
-            <button id="prevFrameButton" onclick="prevResult()"> prev </button>
+                <button id="prevFrameButton" onclick="prevResult()" style="display: none"> prev </button>
 
-            <button id="nextFrameButton" onclick="nextResult()"> next </button>
+                <button id="nextFrameButton" onclick="nextResult()" style="display: none"> next </button>
 
-        </div>
+                <button id="retryConnectionButton" onclick="run()"> retry </button>
+
+            </div>
 
     </div>
 
-    <script src="main.js"> </script>
+        <script src="main.js"> </script>
+
+    </div>
 
 </body>
 

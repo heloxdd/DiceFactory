@@ -8,10 +8,13 @@ let p2DicePreview = document.getElementById("p2DicePreview");
 let p1DicePreview = document.getElementById("p1DicePreview");
 let nextFrameButton = document.getElementById("nextFrameButton");
 let prevFrameButton = document.getElementById("prevFrameButton");
+let retryConnectionButton = document.getElementById("retryConnectionButton");
 let winText = document.getElementById("winText");
 let rulesDisplay = document.getElementById("rulesDisplay");
 let rulesButton = document.getElementById("rulesButton");
 let icon = document.getElementById("icon");
+// let loginScreen = document.getElementById("loginScreen");
+// let loginButton = document.getElementById("loginButton");
 let startDrag = null;
 let currentResult=-8;
 let p1Dice = [];
@@ -94,6 +97,7 @@ function ready() {
 } //p1 ready
 
 function run() {
+    currentResult = -8
     p2screen.style.display = "none";
     resultScreen.style.display = "flex";
     p1Dice = [];
@@ -106,21 +110,26 @@ function run() {
         p2Dice.push(parseInt(p2Container.children[i].textContent));
     }
 
-    fetch("http://localhost:8080/api/play", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-            player1ID: 1,
-            player2ID: 2,
-            player1Dice: p1Dice,
-            player2Dice: p2Dice
+        fetch("http://localhost:8080/api/play", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                player1ID: 1,
+                player2ID: 2,
+                player1Dice: p1Dice,
+                player2Dice: p2Dice
+            })
         })
-    })
-    .then(response => response.json())
-    .then(data => {
-        results = data;
-        nextResult();
-    })
+            .then(response => response.json())
+            .then(data => {
+                results = data;
+                nextResult();
+                retryConnectionButton.style.display = "none";
+                nextFrameButton.style.display = "flex";
+                prevFrameButton.style.display = "flex";
+                resultText.style.fontSize = "1.75svw";
+            })
+
 } //runs the game and runs showResults with the given data
 
 function prevResult() { //processes a single result into graphics to visualize it
@@ -180,3 +189,8 @@ function renderDie(die) {
     dieImage.setAttribute("src", "images/seagreen/"+die.textContent+".svg");
     die.appendChild(dieImage);
 }
+
+// function login() {
+//     loginScreen.style.display = "flex";
+//     loginButton.style.display = "none";
+// }
